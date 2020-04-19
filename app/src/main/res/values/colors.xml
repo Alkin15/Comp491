@@ -3,4 +3,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="colorBackground">#EFF1FA</color>
+    <color name="colorPurple">#8595EC</color>
+    <color name="colorSensory">#7DDB85</color>
+    <color name="colorEmotional">#F3C660</color>
+    <color name="colorIntellectual">#85C8EC</color>
+    <color name="colorDarkText">#37352F</color>
+    <color name="colorLightText">#C3C3C3</color>
+    <color name="colorWhite">#FAFAFA</color>
 </resources>
