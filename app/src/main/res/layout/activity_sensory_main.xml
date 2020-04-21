@@ -7,90 +7,82 @@
     android:background="#f0f1fa"
     tools:context=".SensoryMainActivity">
 
-    <View
-        android:id="@+id/topLine"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="17dp"
-        android:background="#8595ec"
-        app:layout_constraintBottom_toBottomOf="@+id/createReflectionLog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createReflectionLog"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/createReflectionLog"
-        android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_width="297dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:text="Create Your Reflection Log"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/buttonClose2"
+        android:layout_width="31dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#f0f1fa"
+        android:src="@drawable/ic_clear_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/createReflectionLog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/createReflectionLog" />
+
     <EditText
         android:id="@+id/briefResponse"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_width="317dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
         android:background="#ffffff"
         android:ems="10"
         android:gravity="top"
         android:hint="@string/Lorem"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/briefButtton"
+        app:layout_constraintEnd_toEndOf="@+id/briefDescp"
+        app:layout_constraintStart_toStartOf="@+id/briefDescp"
+        app:layout_constraintTop_toBottomOf="@+id/briefDescp" />
 
     <Button
         android:id="@+id/briefButtton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="184dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="40dp"
         android:onClick="sendMessage"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/briefResponse"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/briefDescp"
-        android:layout_width="253dp"
-        android:layout_height="55dp"
-        android:text="Brief description of the experience:"
+        android:layout_width="317dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="72dp"
+        android:text=" Brief description of the experience"
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/briefResponse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createReflectionLog"
-        app:layout_constraintVertical_bias="0.752" />
+        app:layout_constraintTop_toBottomOf="@+id/createReflectionLog" />
 
     <TextView
         android:id="@+id/limit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="500 characters"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/briefResponse"
         app:layout_constraintTop_toBottomOf="@+id/briefResponse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
