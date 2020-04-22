@@ -16,10 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SensoryMainActivity extends AppCompatActivity {
-    DatabaseReference reff;
-    Reflections reflection;
-    long reflection_num;
     public static final String EXTRA_MESSAGE = "com.example.Survey.MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,24 +29,6 @@ public class SensoryMainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.briefResponse);
         String response = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE,response);
-        reflection = new Reflections();
-        reflection.setBrief(response);
-
-        reff = FirebaseDatabase.getInstance().getReference().child("Reflections");
-        reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.exists()){
-                        reflection_num = dataSnapshot.getChildrenCount();
-                    }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        reff.child(String.valueOf(reflection_num+1)).setValue(reflection);
         startActivity(intent);
     }
 }
