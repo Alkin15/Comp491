@@ -7,16 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class sensoryActivity extends AppCompatActivity {
+    SeekBar sensorySeekbar;
+    int sensorySignificance=1;
     Button senButton;
+    int step = 1;
+    int max = 4;
+    int min = 1;
     public static final String EXTRA_MESSAGE = "com.example.Survey.MESSAGE";
     EditText senResponse;
     public static final String responses = "responses";
+    public static final String significace = "significance";
     ArrayList<String> allResponses = new ArrayList<String>();
+    ArrayList<Integer> allSignificance = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +34,27 @@ public class sensoryActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         final Intent intent = getIntent();
         final String message = intent.getStringExtra(SensoryMainActivity.EXTRA_MESSAGE);
+        sensorySeekbar = (SeekBar) findViewById(R.id.sensorySeekbar);
+        sensorySeekbar.setMax(max);
+        allSignificance.add(sensorySignificance);
+        sensorySeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                sensorySignificance = min+(progress*step);
+                allSignificance.set(0,sensorySignificance);
+                Toast.makeText(sensoryActivity.this,"sensorySigniicance=" + sensorySignificance,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
         senButton = (Button) findViewById(R.id.sensoryNext);
         final Intent emotional = new Intent(this,emotionalActivity.class);
         senButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +73,7 @@ public class sensoryActivity extends AppCompatActivity {
         allResponses.add(message);
         allResponses.add(sensoryResponse);
         intent.putExtra(responses, allResponses);
+        intent.putExtra(significace,allSignificance);
         this.startActivity(intent);
     }
 }
