@@ -3,4 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="sensoryGreen">#4AE69A</color>
+    <color name="emotionalOrange">#F8DC61</color>
+    <color name="intellectualBlue">#25CCEB</color>
 </resources>
