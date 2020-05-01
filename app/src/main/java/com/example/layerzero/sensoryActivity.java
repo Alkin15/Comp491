@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 
@@ -43,6 +46,7 @@ public class sensoryActivity extends AppCompatActivity {
                 sensorySignificance = min+(progress*step);
                 allSignificance.set(0,sensorySignificance);
                 Toast.makeText(sensoryActivity.this,"sensorySigniicance=" + sensorySignificance,Toast.LENGTH_LONG).show();
+                Log.d("Firebase", "token "+ FirebaseInstanceId.getInstance().getToken());
             }
 
             @Override
