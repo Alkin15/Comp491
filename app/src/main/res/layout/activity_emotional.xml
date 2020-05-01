@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f0f1fa"
-    tools:context=".sensoryActivity">
+    tools:context=".emotionalActivity">
 
     <ImageButton
         android:id="@+id/buttonClose"
@@ -34,13 +34,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sensorySignificance"
+        android:id="@+id/emotionalSignificance"
         android:layout_width="208dp"
         android:layout_height="28dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:text="@string/Sensory"
+        android:text="@string/Emotional"
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/createReflectionLog" />
 
     <EditText
-        android:id="@+id/sensoryResponse"
+        android:id="@+id/emotionalResponse"
         android:layout_width="350dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
@@ -66,15 +66,15 @@
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Share your thoughts on sensory significance"
+        android:text="Share your thoughts on emotional significance"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/sensorySeekbar"
-        app:layout_constraintTop_toBottomOf="@+id/sensorySeekbar" />
+        app:layout_constraintStart_toStartOf="@id/emotionalSeekbar"
+        app:layout_constraintTop_toBottomOf="@id/emotionalSeekbar" />
 
     <Button
-        android:id="@+id/sensoryNext"
+        android:id="@+id/emotionalNext"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -84,28 +84,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sensoryResponse" />
+        app:layout_constraintTop_toBottomOf="@+id/emotionalResponse" />
 
     <TextView
         android:id="@+id/limit3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="500 characters"
-        app:layout_constraintEnd_toEndOf="@+id/sensoryResponse"
-        app:layout_constraintTop_toBottomOf="@+id/sensoryResponse" />
+        app:layout_constraintEnd_toEndOf="@id/emotionalResponse"
+        app:layout_constraintTop_toBottomOf="@id/emotionalResponse" />
 
     <SeekBar
-        android:id="@+id/sensorySeekbar"
+        android:id="@+id/emotionalSeekbar"
         android:layout_width="353dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"
         android:indeterminate="false"
         android:max="5"
         android:progress="1"
-        android:thumb="@drawable/custom_thumb"
-        app:layout_constraintStart_toStartOf="@+id/sensorySignificance"
-        app:layout_constraintTop_toBottomOf="@+id/sensorySignificance"
+        app:layout_constraintStart_toStartOf="@id/emotionalSignificance"
+        app:layout_constraintTop_toBottomOf="@id/emotionalSignificance"
         android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@drawable/custom_thumb"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

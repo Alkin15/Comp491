@@ -12,4 +12,7 @@
     <color name="colorDarkText">#37352F</color>
     <color name="colorLightText">#C3C3C3</color>
     <color name="colorWhite">#FAFAFA</color>
+    <color name="sensoryGreen">#4AE69A</color>
+    <color name="emotionalOrange">#F8DC61</color>
+    <color name="intellectualBlue">#25CCEB</color>
 </resources>
