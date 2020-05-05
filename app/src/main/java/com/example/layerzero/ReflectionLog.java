@@ -2,79 +2,82 @@ package com.example.layerzero;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 import com.synnapps.carouselview.ViewListener;
 
 public class ReflectionLog extends AppCompatActivity {
 
-    CarouselView imageCarouselView;
-    CarouselView textCarouselView;
+    CarouselView carouselView1;
+    CarouselView carouselView2;
 
-    int[] sampleImages = {R.drawable.n1, R.drawable.n2, R.drawable.n3};
-
-//    int[] backgrounds = {R.layout.layout_sensory, R.layout.layout_emotional, R.layout.layout_intellectual};
     int[] backgrounds = {R.drawable.textline_green, R.drawable.textline_yellow, R.drawable.textline_blue};
+    String[] titles = {"Sensory Significance", "Emotional Significance", "Intellectual Significance"};
+    String[] texts = {"", "", ""};
+    String summaryText = "";
+    int picture;
+    int processedPicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reflection_log);
 
-        imageCarouselView = (CarouselView) findViewById(R.id.imageCarouselView);
-        imageCarouselView.setPageCount(sampleImages.length);
-        imageCarouselView.setImageListener(imageListener);
+       for (int i = 0; i < 3; i++) {
+           texts[i] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+       }
+       summaryText = "ashdadh";
+       picture = R.drawable.n1;
+       processedPicture = R.drawable.n1;
 
-        textCarouselView = (CarouselView) findViewById(R.id.textCarouselView);
-        textCarouselView.setPageCount(3);
-        // set ViewListener for custom view
-        textCarouselView.setViewListener(viewListener);
+        carouselView1 = findViewById(R.id.imageCarouselView);
+        carouselView1.setPageCount(3);
+        carouselView1.setViewListener(viewListener1);
 
-//        Toast.makeText(ReflectionLog.this, "Fiebase connected", Toast.LENGTH_LONG).show();
-
-        String sensoryContent =
-                "<h1 style=\"text-align:center; color:black\">Sensory Significance</h1>\n" +
-                        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n";
-
-        String emotionalContent =
-                "<h1 style=\"text-align:center; color:black\">Emotional Significance</h1>\n" +
-                        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n";
-
-        String intellectualContent =
-                "<h1 style=\"text-align:center; color:black\">Intellectual Significance</h1>\n" +
-                        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n";
-
-        // Load and use views afterwards
-//        TextView tv2 = (TextView)findViewById(R.id.textView2);
-//        tv2.setText(Html.fromHtml(sensoryContent));
-//        TextView tv3 = (TextView)findViewById(R.id.textView3);
-//        tv3.setText(Html.fromHtml(emotionalContent));
-//        TextView tv4 = (TextView)findViewById(R.id.textView4);
-//        tv4.setText(Html.fromHtml(intellectualContent));
+        carouselView2 = findViewById(R.id.textCarouselView);
+        carouselView2.setPageCount(3);
+        carouselView2.setViewListener(viewListener2);
     }
 
-    ViewListener viewListener = new ViewListener() {
+    ViewListener viewListener1 = new ViewListener() {
         @Override
         public View setViewForPosition(int position) {
             View customView = getLayoutInflater().inflate(R.layout.layout_reflection_summary, null);
-
             //set view attributes here
-            customView.setBackgroundResource(backgrounds[position]);
-
+            switch (position) {
+                case 0:
+                    customView.setBackgroundResource(picture);
+                    break;
+                case 1:
+                    customView.setBackgroundResource(processedPicture);
+                    break;
+                case 2:
+                    TextView body = customView.findViewById(R.id.carouselBody);
+                    body.setText(summaryText);
+                    customView.setBackgroundResource(R.drawable.background_white);
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + position);
+            }
             return customView;
         }
     };
 
-    ImageListener imageListener = new ImageListener() {
+    ViewListener viewListener2 = new ViewListener() {
         @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);
+        public View setViewForPosition(int position) {
+            View customView = getLayoutInflater().inflate(R.layout.layout_emotion_summary, null);
+            //set view attributes here
+            customView.setBackgroundResource(backgrounds[position]);
+            TextView title = customView.findViewById(R.id.carouselTitle);
+            title.setText(titles[position]);
+            TextView body = customView.findViewById(R.id.carouselBody);
+            body.setText(texts[position]);
+            return customView;
         }
     };
+
 }
