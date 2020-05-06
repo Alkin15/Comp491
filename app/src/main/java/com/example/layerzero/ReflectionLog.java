@@ -28,11 +28,12 @@ public class ReflectionLog extends AppCompatActivity {
 
     int[] backgrounds = {R.drawable.textline_green, R.drawable.textline_yellow, R.drawable.textline_blue};
     String[] titles = {"Sensory Significance", "Emotional Significance", "Intellectual Significance"};
-    String brief = "";
+
     int picture;
     int processedPicture;
     String imageId = "";
     String imageUrl = "";
+    String brief = "";
     String emotional = "";
     String intellectual = "";
     String sensory = "";
@@ -42,8 +43,10 @@ public class ReflectionLog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reflection_log);
 
-        imageId = "3";                           //to fetch the correct information from Firebase
+        imageId = "10";                           //to fetch the correct information from Firebase
         imageUrl = "https://picsum.photos/300";  //image source
+
+        String texts[];
 
 
 
@@ -55,6 +58,7 @@ public class ReflectionLog extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference();
         uidRef = rootRef.child("Reflections").child(imageId);
         ValueEventListener valueEventListener = new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 brief = dataSnapshot.child("brief").getValue(String.class);
@@ -62,6 +66,7 @@ public class ReflectionLog extends AppCompatActivity {
                 intellectual = dataSnapshot.child("intellectual").getValue(String.class);
                 sensory = dataSnapshot.child("sensory").getValue(String.class);
 //                Log.d("TAG", brief + " / " + sensory + " / " + emotional + " / " + intellectual);
+//                Toast.makeText(getApplicationContext(), sensory, Toast.LENGTH_LONG).show();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
