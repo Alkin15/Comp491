@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.layerzero">
 
-
-    <uses-permission android:name="android.permission.INTERNET"> </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -12,10 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".intellectualActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".emotionalActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".HomeActivity" android:exported="true">
-
+        <activity android:name=".InstagramLogin"></activity>
+        <activity
+            android:name=".intellectualActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".emotionalActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +35,6 @@
             android:name=".sensoryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
-
     </application>
 
 </manifest>
