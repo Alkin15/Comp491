@@ -18,6 +18,7 @@
         android:layout_centerInParent="true"
         android:fontFamily="@font/merriweather"
         android:textSize="12dp"
+        android:lineHeight="24dp"
         android:textStyle="italic" />
 
 </RelativeLayout>
