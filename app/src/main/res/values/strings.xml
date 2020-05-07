@@ -14,4 +14,82 @@
     <string name="ar_view">AR VIEW</string>
     <string name="s">S</string>
     <string name="action_sign_in">Login with Instagram</string>
+    <string name="login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+
+
+
+    <!-- BOARDING PAGE CONTENT-->
+    <string name="boardingTitle1">Reflection Logs</string>
+    <string name="boardingTitle2">Brief Description</string>
+    <string name="boardingTitle3">Aspects</string>
+    <string name="boardingTitleLast">Visit Your Reflection Logs</string>
+
+    <string name="boardingDesc1">Layer Zero App is a self reflection
+tool that encourages you to
+fill reflection logs.
+
+Reflection logs are  mini surveys
+with open ended questions.
+
+They are designed to make you
+think deeper on your experience
+of sharing on social media. </string>
+    <string name="boardingDesc2">The first question of the
+reflection log asks you for a
+brief description of the experience.
+
+Think of it like a journal.
+Write down whatever you like.
+Just share your thoughts either on
+the experience of sharing or
+experience of the content.</string>
+    <string name="boarding_desc3">Following, reflection log includes
+questions for three different aspects
+of the experience you just described:
+sensory, emotional, intellectual.
+
+Here is a place for you to think deeper.
+Take a breath. Take a new perspective.</string>
+    <string name="sensoryDesc">Think about your experience from
+a sensory perspective.
+Rate the effect of sensory input on
+your experience and add your comments.
+
+Think about not just  what you saw, but also
+about what you heard, touched, smelt,
+and tasted.</string>
+    <string name="emotionalDesc">Think about your experience from
+an emotional perspective.
+Rate the effect of emotional input on
+your experience and add your comments.
+
+Think about your feelings, dig  even deeper.</string>
+    <string name="intellectualDesc">
+        Think about your experience
+from an intellectual perspective.
+Rate the effect of intellectual input on
+your experience and add your comments..
+
+Think about thoughts.
+    </string>
+    <string name="boardingDescLast">
+        Open your Layer Zero App to
+revisit your reflections about
+your experiences on social media.
+
+You can use AROUND ME tab to
+explore your past reflections
+around your current location.
+
+Visualizations you see on
+your gallery are generated
+based on your ratings to
+give you an overview.
+
+Enjoy your experience!
+    </string>
+
+
 </resources>
