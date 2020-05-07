@@ -47,6 +47,8 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
+        android:lineHeight="20dp"
+        android:padding="20dp"
         android:id="@+id/briefResponse"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -58,9 +60,8 @@
         android:ems="10"
         android:fontFamily="@font/open_sans"
         android:gravity="top"
-        android:hint="@string/Lorem"
+        android:hint="@string/response_here"
         android:inputType="textPersonName"
-        android:padding="10dp"
         android:textColor="#7F7F7F"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/briefButtton"

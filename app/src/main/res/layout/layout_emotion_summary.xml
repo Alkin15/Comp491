@@ -18,19 +18,19 @@
         android:text="Title"
         android:textAlignment="center"
         android:textSize="16dp"
-        android:padding="24dp"
+        android:padding="20dp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         />
 
     <TextView
+        android:lineHeight="20dp"
         android:id="@+id/carouselBody"
         android:layout_width="295dp"
         android:layout_height="660dp"
         android:layout_below="@id/carouselTitle"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/open_sans"
-        android:lineHeight="24dp"
         android:text="TextView"
         android:textSize="12dp" />
 
