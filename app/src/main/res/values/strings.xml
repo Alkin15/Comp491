@@ -24,6 +24,11 @@
     <string name="skip">Skip</string>
     <string name="finish">Finish</string>
 
+    <string name="loginFailed">Login Failed!</string>
+
+    <string name="fillMissingInformation">Please fill missing information!</string>
+
+
 
     <!-- BOARDING PAGE CONTENT-->
     <string name="boardingTitle1">Reflection Logs</string>

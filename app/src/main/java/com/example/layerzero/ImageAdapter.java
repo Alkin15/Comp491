@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -18,15 +19,15 @@ import java.util.Iterator;
 public class ImageAdapter  extends BaseAdapter {
 
     static int arraySize = 8;
-    ArrayList<String> urls;
+    ArrayList<String> posts;
     Context  context;
 
-    public ImageAdapter(Context context, String url, int count){
+    public ImageAdapter(Context context, ArrayList<String> posts, int count){
         this.context = context;
-        urls = new ArrayList<>();
+        this.posts = new ArrayList<>();
         int c = 0;
         while(c < count){
-            urls.add(url);
+            this.posts.add(posts.get(c));
             c++;
         }
         /*
@@ -37,7 +38,7 @@ public class ImageAdapter  extends BaseAdapter {
             Log.v("iter", tp);
         }
          */
-        this.arraySize = this.urls.size();
+        this.arraySize = this.posts.size();
     }
 
     @Override
@@ -47,7 +48,7 @@ public class ImageAdapter  extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return urls.get(position);
+        return posts.get(position);
     }
 
     @Override
@@ -58,6 +59,7 @@ public class ImageAdapter  extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
+        final int pos = position;
         if (convertView == null) {
             imageView = new ImageView(this.context);
             imageView.setLayoutParams(new GridView.LayoutParams(400, 400));
@@ -65,14 +67,14 @@ public class ImageAdapter  extends BaseAdapter {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ReflectionLog.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Intent intent = new Intent(context, ReflectionLog.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("post", posts.get(pos));
                     v.getContext().startActivity(intent);
                 }
             });
         } else {
             imageView = (ImageView) convertView;
         }
-        Picasso.get().load(urls.get(position)).into(imageView);
+        Picasso.get().load(posts.get(position)).into(imageView);
         return imageView;
     }
 }

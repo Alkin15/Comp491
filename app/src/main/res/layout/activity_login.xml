@@ -7,6 +7,18 @@
     android:background="@drawable/login_background"
     tools:context=".LoginActivity">
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.RotatingCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
@@ -16,10 +28,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_edittext" />
+        app:layout_constraintTop_toBottomOf="@+id/password_text" />
 
     <EditText
-        android:id="@+id/password_edittext"
+        android:id="@+id/password_text"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -29,10 +41,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+        app:layout_constraintTop_toBottomOf="@+id/email_text" />
 
     <EditText
-        android:id="@+id/email_edittext"
+        android:id="@+id/email_text"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

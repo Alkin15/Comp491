@@ -163,16 +163,29 @@
             app:layout_constraintTop_toBottomOf="@+id/line1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <GridView
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.RotatingCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <GridView
             android:layout_weight="3"
             android:id="@+id/image_grid"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:columnWidth="100dp"
             android:gravity="center"
-            android:horizontalSpacing="5dp"
-            android:numColumns="auto_fit"
+            android:horizontalSpacing="0dp"
+            android:numColumns="3"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="5dp" />
+            android:verticalSpacing="0dp" />
 
 </LinearLayout>
