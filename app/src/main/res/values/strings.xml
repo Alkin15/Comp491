@@ -17,4 +17,85 @@
     <string name="base_url">https://api.instagram.com/</string>
     <string name="get_user_info_url">https://api.instagram.com/v1/users/self/?access_token=</string>
     <string name="s">S</string>
+    <string name="action_sign_in">Login with Instagram</string>
+    <string name="login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="skip">Skip</string>
+    <string name="finish">Finish</string>
+
+
+    <!-- BOARDING PAGE CONTENT-->
+    <string name="boardingTitle1">Reflection Logs</string>
+    <string name="boardingTitle2">Brief Description</string>
+    <string name="boardingTitle3">Aspects</string>
+    <string name="boardingTitleLast">Visit Your\nReflection Logs</string>
+    <string name="intellectual_divided">Intellectual\nSignificance</string>
+
+    <string name="boardingDesc1">\nLayer Zero App is a self reflection
+tool that encourages you to
+fill reflection logs.\n\n
+
+Reflection logs are  mini surveys
+with open ended questions.\n\n
+
+They are designed to make you
+think deeper on your experience
+of sharing on social media. </string>
+    <string name="boardingDesc2">\nThe first question of the
+reflection log asks you for a
+brief description of the experience.\n\n
+
+Think of it like a journal.
+Write down whatever you like.
+Just share your thoughts either on
+the experience of sharing or
+experience of the content.</string>
+    <string name="boarding_desc3">\nFollowing, reflection log includes
+questions for three different aspects
+of the experience you just described:
+sensory, emotional, intellectual.\n\n
+
+Here is a place for you to think deeper.
+Take a breath. Take a new perspective.</string>
+    <string name="sensoryDesc">\nThink about your experience from
+a sensory perspective.
+Rate the effect of sensory input on
+your experience and add your comments.\n\n
+
+Think about not just  what you saw, but also
+about what you heard, touched, smelt,
+and tasted.</string>
+    <string name="emotionalDesc">\nThink about your experience from
+an emotional perspective.
+Rate the effect of emotional input on
+your experience and add your comments.\n\n
+
+Think about your feelings, dig  even deeper.</string>
+    <string name="intellectualDesc">
+        \nThink about your experience
+from an intellectual perspective.
+Rate the effect of intellectual input on
+your experience and add your comments..\n\n
+
+Think about thoughts.
+    </string>
+    <string name="boardingDescLast">
+        \nOpen your Layer Zero App to
+revisit your reflections about
+your experiences on social media.\n\n
+
+You can use AROUND ME tab to
+explore your past reflections
+around your current location.\n\n
+
+Visualizations you see on
+your gallery are generated
+based on your ratings to
+give you an overview.\n\n
+
+Enjoy your experience!
+    </string>
+
+
 </resources>

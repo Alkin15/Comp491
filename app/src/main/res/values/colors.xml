@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#8595EC</color>
+    <color name="colorPrimaryDark">#8595EC</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="inactive">#C3C3C3</color>
     <color name="colorBackground">#EFF1FA</color>
     <color name="colorPurple">#8595EC</color>
     <color name="colorSensory">#7DDB85</color>
@@ -15,4 +16,6 @@
     <color name="sensoryGreen">#7DDB85</color>
     <color name="emotionalOrange">#F3C660</color>
     <color name="intellectualBlue">#85C8EC</color>
+    <color name="text_button_dark">#1C1A1A</color>
+    <color name="text_dark">#1C1A1A</color>
 </resources>
