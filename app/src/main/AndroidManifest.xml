@@ -23,8 +23,9 @@
         <activity android:name=".SensoryMainActivity" />
         <activity android:name=".ReflectionLog" />
         <activity android:name=".MainActivity" />
-
-
+        <activity android:name=".sensoryActivity" />
+        <activity android:name=".emotionalActivity" />
+        <activity android:name=".intellectualActivity" />
 
     </application>
 
