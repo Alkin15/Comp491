@@ -63,10 +63,11 @@
     <EditText
         android:id="@+id/intellectualResponse"
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/navbar_x"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="@dimen/navbar_x"
+        android:layout_marginBottom="60dp"
         android:background="@color/colorWhite"
         android:ems="10"
         android:fontFamily="@font/open_sans"
@@ -75,6 +76,7 @@
         android:inputType="textPersonName"
         android:textColor="#7F7F7F"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/intellectualNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shareThoughts" />
