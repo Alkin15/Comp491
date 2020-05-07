@@ -12,5 +12,9 @@
     <string name="hello_here_are_your_reflections">Hello ..., here are your reflections.</string>
     <string name="layer_zero">Layer Zero</string>
     <string name="ar_view">AR VIEW</string>
+    <string name="client_id">1383712118489523</string>
+    <string name="callback_url">https://instagram.com/</string>
+    <string name="base_url">https://api.instagram.com/</string>
+    <string name="get_user_info_url">https://api.instagram.com/v1/users/self/?access_token=</string>
     <string name="s">S</string>
 </resources>
