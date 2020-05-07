@@ -49,15 +49,14 @@
 
     <EditText
         android:id="@+id/emotionalResponse"
-        android:layout_width="350dp"
-        android:layout_height="0dp"
+        android:layout_width="320dp"
+        android:layout_height="350dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="100dp"
         android:background="#ffffff"
         android:ems="10"
         android:hint="@string/response_here"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/shareThoughts"
         app:layout_constraintStart_toStartOf="@+id/shareThoughts"
         app:layout_constraintTop_toBottomOf="@id/shareThoughts" />
 
@@ -65,11 +64,12 @@
         android:id="@+id/shareThoughts"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:text="Share your thoughts on emotional significance"
         android:textColor="@android:color/black"
         android:textSize="17sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/emotionalResponse"
         app:layout_constraintStart_toStartOf="@id/emotionalSeekbar"
         app:layout_constraintTop_toBottomOf="@id/emotionalSeekbar" />
 
@@ -77,19 +77,20 @@
         android:id="@+id/emotionalNext"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emotionalResponse" />
+        app:layout_constraintTop_toBottomOf="@+id/limit3" />
 
     <TextView
         android:id="@+id/limit3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:text="500 characters"
         app:layout_constraintEnd_toEndOf="@id/emotionalResponse"
         app:layout_constraintTop_toBottomOf="@id/emotionalResponse" />
@@ -102,10 +103,10 @@
         android:indeterminate="false"
         android:max="5"
         android:progress="1"
-        app:layout_constraintStart_toStartOf="@id/emotionalSignificance"
-        app:layout_constraintTop_toBottomOf="@id/emotionalSignificance"
         android:progressDrawable="@drawable/seekbar_style"
         android:thumb="@drawable/custom_thumb"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/shareThoughts"
+        app:layout_constraintStart_toStartOf="@id/emotionalSignificance"
+        app:layout_constraintTop_toBottomOf="@id/emotionalSignificance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

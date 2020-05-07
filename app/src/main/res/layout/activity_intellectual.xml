@@ -49,15 +49,15 @@
 
     <EditText
         android:id="@+id/intellectualResponse"
-        android:layout_width="350dp"
-        android:layout_height="0dp"
+        android:layout_width="320dp"
+        android:layout_height="350dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="100dp"
         android:background="#ffffff"
         android:ems="10"
+        android:gravity="top"
         android:hint="@string/response_here"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/shareThoughts"
         app:layout_constraintStart_toStartOf="@+id/shareThoughts"
         app:layout_constraintTop_toBottomOf="@id/shareThoughts" />
 
@@ -65,11 +65,13 @@
         android:id="@+id/shareThoughts"
         android:layout_width="378dp"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Share your thoughts on intellectual significance"
         android:textColor="@android:color/black"
         android:textSize="17sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/intellectualResponse"
+        app:layout_constraintEnd_toEndOf="@+id/intellectualSeekbar"
         app:layout_constraintStart_toStartOf="@id/intellectualSeekbar"
         app:layout_constraintTop_toBottomOf="@id/intellectualSeekbar" />
 
@@ -84,12 +86,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intellectualResponse" />
+        app:layout_constraintTop_toBottomOf="@+id/limit3" />
 
     <TextView
         android:id="@+id/limit3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:text="500 characters"
         app:layout_constraintEnd_toEndOf="@id/intellectualResponse"
         app:layout_constraintTop_toBottomOf="@id/intellectualResponse" />
