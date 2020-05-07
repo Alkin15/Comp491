@@ -19,8 +19,8 @@ public class AuthenticationDialog extends Dialog {
     public AuthenticationDialog(@NonNull Context context, AuthenticationListener listener) {
         super(context);
         this.listener = listener;
-        this.redirect_url = "https://pdurak15.github.io/LayerZero-Website/";
-        this.request_url = "https://api.instagram.com/oauth/authorize?client_id=1383712118489523&redirect_uri=https://pdurak15.github.io/LayerZero-Website/&scope=user_profile,user_media&response_type=code";
+        this.redirect_url = "https://instagram.com/";
+        this.request_url = "https://www.instagram.com/oauth/authorize?client_id=1383712118489523&redirect_uri=https://instagram.com/&scope=user_profile,user_media&response_type=code";
     }
 
     @Override

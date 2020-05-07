@@ -81,7 +81,6 @@ public class instagramLogin extends AppCompatActivity implements AuthenticationL
         token = auth_token;
         getUserInfoByAccessToken(token);
     }
-
     public void onClick(View view) {
         if(token!=null)
         {
