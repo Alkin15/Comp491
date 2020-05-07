@@ -1,9 +1,12 @@
 package com.example.layerzero;
 
+import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.cuneytayyildiz.onboarder.OnboarderActivity;
@@ -15,34 +18,111 @@ import java.util.List;
 
 public class BoardingActivity extends OnboarderActivity implements OnboarderPageChangeListener {
 
+    private int descTextSize = 18;
+    private int titleTextSize = 25;
+    private int paddingFromBottom = 210;
+    private int emotionalTitleSize = titleTextSize;
+    private int descColor = R.color.text_dark;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         List<OnboarderPage> pages = Arrays.asList(
                 new OnboarderPage.Builder()
-                        .title("Donut")
-                        .description("Android 1.6")
-                        .imageResourceId( R.drawable.n1)
-                        .backgroundColorId(R.color.colorAccent)
-                        .titleColorId(R.color.colorPrimaryDark)
-                        .descriptionColorId(R.color.design_default_color_primary_dark)
+                        .titleResourceId(R.string.boardingTitle1)
+                        .descriptionResourceId(R.string.boardingDesc1)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorPrimary)
+                        .descriptionColorId(descColor)
                         .multilineDescriptionCentered(true)
+                        .titleTextSize(titleTextSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom-70)
                         .build(),
-
-                // No need to write all of them :P
-
                 new OnboarderPage.Builder()
-                        .title("Oreo")
-                        .description("Android 8.0")
-                        .imageResourceId( R.drawable.n2)
-                        .backgroundColor(R.drawable.login_background)
-                        .titleColor(R.color.design_default_color_primary_dark)
-                        .descriptionColor(R.color.common_google_signin_btn_text_dark_focused)
+                        .titleResourceId(R.string.boardingTitle2)
+                        .descriptionResourceId(R.string.boardingDesc2)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorPrimary)
+                        .descriptionColorId(descColor)
                         .multilineDescriptionCentered(true)
+                        .titleTextSize(titleTextSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom-50)
+                        .build(),
+                new OnboarderPage.Builder()
+                        .titleResourceId(R.string.boardingTitle3)
+                        .descriptionResourceId(R.string.boarding_desc3)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorPrimary)
+                        .descriptionColorId(descColor)
+                        .multilineDescriptionCentered(true)
+                        .titleTextSize(titleTextSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom)
+                        .build(),
+                new OnboarderPage.Builder()
+                        .titleResourceId(R.string.Sensory)
+                        .descriptionResourceId(R.string.sensoryDesc)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorSensory)
+                        .descriptionColorId(descColor)
+                        .multilineDescriptionCentered(true)
+                        .titleTextSize(emotionalTitleSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom)
+                        .build(),
+                new OnboarderPage.Builder()
+                        .titleResourceId(R.string.Emotional)
+                        .descriptionResourceId(R.string.emotionalDesc)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorEmotional)
+                        .descriptionColorId(descColor)
+                        .multilineDescriptionCentered(true)
+                        .titleTextSize(emotionalTitleSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom)
+                        .build(),
+                new OnboarderPage.Builder()
+                        .titleResourceId(R.string.Intellectual)
+                        .descriptionResourceId(R.string.intellectualDesc)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorIntellectual)
+                        .descriptionColorId(descColor)
+                        .multilineDescriptionCentered(true)
+                        .titleTextSize(emotionalTitleSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom)
+                        .build(),
+                new OnboarderPage.Builder()
+                        .titleResourceId(R.string.boardingTitleLast)
+                        .descriptionResourceId(R.string.boardingDescLast)
+                        .imageSizeDp(0,0)
+                        .backgroundColorId(R.color.colorBackground)
+                        .titleColorId(R.color.colorPrimary)
+                        .descriptionColorId(descColor)
+                        .multilineDescriptionCentered(true)
+                        .titleTextSize(titleTextSize)
+                        .descriptionTextSize(descTextSize)
+                        .textPaddingBottomDp(paddingFromBottom-100)
                         .build()
         );
         setOnboarderPageChangeListener(this);
+        setFinishButtonTextColor(R.color.text_button_dark);
+        setNextButtonTextColor(R.color.text_button_dark);
+        setSkipButtonTextColor(R.color.text_button_dark);
+        setActiveIndicatorColor(R.color.colorPrimary);
+        setInactiveIndicatorColor(R.color.inactive);
+        setDividerVisibility(View.GONE);
+        setSkipButtonTitle(R.string.skip);
+        setFinishButtonTitle(R.string.finish);
         initOnboardingPages(pages);
     }
 
@@ -58,3 +138,8 @@ public class BoardingActivity extends OnboarderActivity implements OnboarderPage
         //Toast.makeText(this, "onPageChanged: " + position, Toast.LENGTH_SHORT).show();
     }
 }
+
+/*Easy clone for boarding page
+
+
+ */
