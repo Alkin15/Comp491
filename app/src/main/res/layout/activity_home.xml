@@ -107,49 +107,62 @@
 
         <ImageView
             android:id="@+id/imageView11"
-            android:layout_width="5dp"
-            android:layout_height="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintEnd_toStartOf="@+id/imageView12"
-            app:layout_constraintHorizontal_bias="0.342"
+            app:layout_constraintHorizontal_bias="0.34"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             app:srcCompat="@android:drawable/presence_online" />
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="5dp"
-            android:layout_height="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="28dp"
             android:contentDescription="TODO"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.379"
+            app:layout_constraintHorizontal_bias="0.378"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             app:srcCompat="@android:drawable/presence_online" />
 
         <ImageView
             android:id="@+id/imageView13"
-            android:layout_width="5dp"
-            android:layout_height="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.402"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             app:srcCompat="@android:drawable/presence_online" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <GridView
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.RotatingCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <GridView
             android:layout_weight="3"
             android:id="@+id/image_grid"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:columnWidth="100dp"
             android:gravity="center"
-            android:horizontalSpacing="5dp"
-            android:numColumns="auto_fit"
+            android:horizontalSpacing="0dp"
+            android:numColumns="3"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="5dp" />
+            android:verticalSpacing="0dp" />
 
 </LinearLayout>
