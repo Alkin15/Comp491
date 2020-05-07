@@ -13,4 +13,5 @@
     <string name="layer_zero">Layer Zero</string>
     <string name="ar_view">AR VIEW</string>
     <string name="s">S</string>
+    <string name="action_sign_in">Login with Instagram</string>
 </resources>

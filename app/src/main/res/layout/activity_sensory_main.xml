@@ -60,7 +60,6 @@
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="28dp"
-        android:background="none"
         android:onClick="sendMessage"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
