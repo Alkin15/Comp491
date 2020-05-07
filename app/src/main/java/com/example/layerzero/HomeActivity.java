@@ -30,8 +30,13 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
 
                  */
+                /*
                 Intent i = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://api.instagram.com/oauth/authorize?client_id=1383712118489523&redirect_uri=https://pdurak15.github.io/LayerZero-Website/&scope=user_profile,user_media&response_type=code"));
                 startActivity(i);
+                 */
+                Intent i = new Intent(getApplicationContext(),instagramLogin.class);
+                startActivity(i);
+
             }
         });
 
