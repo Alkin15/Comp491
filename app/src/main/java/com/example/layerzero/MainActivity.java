@@ -20,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PushNotifications.start(getApplicationContext(), "a1857535-3ff2-4bfa-8ccf-1a78f47913e7");
+
+        PushNotifications.start(getApplicationContext(), "e8dc6bfa-81f3-4b61-ac38-aad27e4ef2e8");
         PushNotifications.addDeviceInterest("hello");
+
 
     }
 

@@ -1,9 +1,11 @@
 package com.example.layerzero;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -57,16 +59,37 @@ public class ReflectionLog extends AppCompatActivity {
         //Firebase
         rootRef = FirebaseDatabase.getInstance().getReference();
         uidRef = rootRef.child("Reflections").child(imageId);
-        ValueEventListener valueEventListener = new ValueEventListener() {
-
+        uidRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 brief = dataSnapshot.child("brief").getValue(String.class);
                 emotional = dataSnapshot.child("emotional").getValue(String.class);
                 intellectual = dataSnapshot.child("intellectual").getValue(String.class);
                 sensory = dataSnapshot.child("sensory").getValue(String.class);
-//                Log.d("TAG", brief + " / " + sensory + " / " + emotional + " / " + intellectual);
+
+                carouselView1 = findViewById(R.id.imageCarouselView);
+                carouselView1.setViewListener(viewListener1);
+                carouselView1.setPageCount(3);
+
+
+                carouselView2 = findViewById(R.id.textCarouselView);
+                carouselView2.setViewListener(viewListener2);
+                carouselView2.setPageCount(3);
+
+                Log.d("TAG", brief + " / " + sensory + " / " + emotional + " / " + intellectual);
 //                Toast.makeText(getApplicationContext(), sensory, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        ValueEventListener valueEventListener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -82,13 +105,6 @@ public class ReflectionLog extends AppCompatActivity {
         picture = R.drawable.n1;
         processedPicture = R.drawable.n1;
 
-        carouselView1 = findViewById(R.id.imageCarouselView);
-        carouselView1.setPageCount(3);
-        carouselView1.setViewListener(viewListener1);
-
-        carouselView2 = findViewById(R.id.textCarouselView);
-        carouselView2.setPageCount(3);
-        carouselView2.setViewListener(viewListener2);
 
         //Back button press
         button2 = findViewById(R.id.button2);
