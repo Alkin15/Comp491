@@ -18,18 +18,30 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.RemoteMessage;
+import com.pusher.pushnotifications.PushNotificationReceivedListener;
 import com.pusher.pushnotifications.PushNotifications;
+
+import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth fba;
     private SpinKitView spinner;
+    Boolean log = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         PushNotifications.start(getApplicationContext(), "e8dc6bfa-81f3-4b61-ac38-aad27e4ef2e8");
         PushNotifications.addDeviceInterest("hello");
+        PushNotifications.setOnMessageReceivedListenerForVisibleActivity(this, new PushNotificationReceivedListener() {
+            @Override
+            public void onMessageReceived(@NotNull RemoteMessage remoteMessage) {
+                Intent i = new Intent(getApplicationContext(),SensoryMainActivity.class);
+                startActivity(i);
+            }
+        });
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
@@ -91,5 +103,33 @@ public class LoginActivity extends AppCompatActivity {
                 }*/
             }
         });
+    }
+    @Override
+    protected void onPause() {
+
+        super.onPause();
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PushNotifications.setOnMessageReceivedListenerForVisibleActivity(this, new PushNotificationReceivedListener() {
+            @Override
+            public void onMessageReceived(@NotNull RemoteMessage remoteMessage) {
+                String messagePayload = remoteMessage.getData().get("inAppNotificationMessage");
+                if (messagePayload == null) {
+                    // Message payload was not set for this notification
+                    Log.i("MyActivity", "Payload was missing");
+                } else {
+                    Intent i = new Intent(getApplicationContext(),SensoryMainActivity.class);
+                    startActivity(i);
+                    Log.i("MyActivity", messagePayload);
+                    log = true;
+                    // Now update the UI based on your message payload!
+                }
+
+            }
+        });
+
     }
 }
