@@ -37,7 +37,6 @@ public class emotionalActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 emotionalSignificance = min+(progress*step);
                 allsignificance.set(1,emotionalSignificance);
-                Toast.makeText(emotionalActivity.this,"emotionalSigniicance=" + emotionalSignificance,Toast.LENGTH_LONG).show();
             }
 
             @Override

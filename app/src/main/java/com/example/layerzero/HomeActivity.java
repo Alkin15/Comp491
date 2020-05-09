@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
+
+import kotlin.reflect.jvm.internal.ReflectProperties;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -44,31 +48,23 @@ public class HomeActivity extends AppCompatActivity {
 
         //Get user data
         final ArrayList<Post> posts = new ArrayList<>();
+        //TODO: activate after authentication fixed
         //fba = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
-        ArrayList<String> urls = new ArrayList<>();
-        urls.add("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/330px-Image_created_with_a_mobile_phone.png");
-        urls.add("https://www.w3schools.com/w3css/img_lights.jpg");
-        urls.add("https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg");
-        urls.add("https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg");
-        urls.add("https://scipy-lectures.org/_images/face.png");
-        urls.add("https://www.w3schools.com/w3css/img_forest.jpg");
-        urls.add("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQw9T-FyRzZhM1cJR9mmYqRbLAKdGhkFYtAqntaoQ3fwi2673lF&usqp=CAU");
-        GridView imageGrid = findViewById(R.id.image_grid);
-        imageGrid.setAdapter(new ImageAdapter(getApplicationContext(), urls, 7));
+
+
 
         //String uid = fba.getCurrentUser().getUid();
         //change bottom line to dynamic
-        //DatabaseReference ref = db.getReference("users/000111/posts/");
-        /*ref.addValueEventListener(new ValueEventListener() {
+        DatabaseReference ref = db.getReference("users/000111/posts/");
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Toast.makeText(HomeActivity.this, "got data!", Toast.LENGTH_SHORT).show();
                 for(DataSnapshot tmp : dataSnapshot.getChildren()){
                     posts.add(tmp.getValue(Post.class));
                 }
                 GridView imageGrid = findViewById(R.id.image_grid);
-                imageGrid.setAdapter(new ImageAdapter(getApplicationContext(), posts, posts.size()));
+                imageGrid.setAdapter(new ImageAdapter(getApplicationContext(), posts));
                 spinner.setVisibility(View.GONE);
             }
 
@@ -76,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
 
         Log.v("tag", FirebaseInstanceId.getInstance().getInstanceId().toString());
         sButton = findViewById(R.id.buttonS);
