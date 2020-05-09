@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.pusher.pushnotifications.PushNotifications;
@@ -47,8 +47,6 @@ public class sensoryActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 sensorySignificance = min+(progress*step);
                 allSignificance.set(0,sensorySignificance);
-                Toast.makeText(sensoryActivity.this,"sensorySigniicance=" + sensorySignificance,Toast.LENGTH_LONG).show();
-                Log.d("Firebase", "token "+ FirebaseInstanceId.getInstance().getToken());
             }
 
             @Override

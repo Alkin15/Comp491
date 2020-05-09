@@ -3,9 +3,12 @@ package com.example.layerzero;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ViewListener;
 
@@ -28,6 +32,10 @@ public class ReflectionLog extends AppCompatActivity {
 
     int[] backgrounds = {R.drawable.textline_green, R.drawable.textline_yellow, R.drawable.textline_blue};
     String[] titles = {"Sensory Significance", "Emotional Significance", "Intellectual Significance"};
+
+    private Post post;
+    private Drawable image;
+    private String url;
 
     int picture;
     int processedPicture;
@@ -54,31 +62,8 @@ public class ReflectionLog extends AppCompatActivity {
 //        imageId = intent.getStringExtra("imageId");
 //        imageUrl = intent.getStringExtra("imageUrl");
 
-        //Firebase
-        rootRef = FirebaseDatabase.getInstance().getReference();
-        uidRef = rootRef.child("Reflections").child(imageId);
-        ValueEventListener valueEventListener = new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                brief = dataSnapshot.child("brief").getValue(String.class);
-                emotional = dataSnapshot.child("emotional").getValue(String.class);
-                intellectual = dataSnapshot.child("intellectual").getValue(String.class);
-                sensory = dataSnapshot.child("sensory").getValue(String.class);
-//                Log.d("TAG", brief + " / " + sensory + " / " + emotional + " / " + intellectual);
-//                Toast.makeText(getApplicationContext(), sensory, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-//                Toast.makeText(getApplicationContext(), "Error fetching data from database", Toast.LENGTH_LONG).show();
-            }
-        };
-        uidRef.addListenerForSingleValueEvent(valueEventListener);
-
-        //Fill the views with text from Firebase
-//       for (int i = 0; i < 3; i++) {
-////           texts[i] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-////       }
+        //Enver editledi
+        this.post = Util.manuelObjecter(getIntent());
         picture = R.drawable.n1;
         processedPicture = R.drawable.n1;
 
@@ -90,13 +75,13 @@ public class ReflectionLog extends AppCompatActivity {
         carouselView2.setPageCount(3);
         carouselView2.setViewListener(viewListener2);
 
+
         //Back button press
         button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
     }
@@ -108,10 +93,10 @@ public class ReflectionLog extends AppCompatActivity {
             //set view attributes here
             switch (position) {
                 case 0:
-                    customView.setBackgroundResource(picture);
+                    Picasso.get().load(post.getPhotoURL()).into((ImageView) customView.findViewById(R.id.carouselBackground));
                     break;
                 case 1:
-                    customView.setBackgroundResource(processedPicture);
+                    Picasso.get().load(post.getPhotoURL()).into((ImageView) customView.findViewById(R.id.carouselBackground));
                     break;
                 case 2:
                     TextView body = customView.findViewById(R.id.carouselBody);
@@ -136,13 +121,13 @@ public class ReflectionLog extends AppCompatActivity {
             TextView body = customView.findViewById(R.id.carouselBody);
             switch (position) {
                 case 0:
-                    body.setText(sensory);
+                    body.setText(post.getSensoryDescription());
                     break;
                 case 1:
-                    body.setText(emotional);
+                    body.setText(post.getEmotionalDescription());
                     break;
                 case 2:
-                    body.setText(intellectual);
+                    body.setText(post.getIntellectualDescription());
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + position);

@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,8 +32,8 @@ public class intellectualActivity extends AppCompatActivity {
     EditText intellectualResponse;
     ArrayList<String> lastmessage = new ArrayList<String>();
     ArrayList<Integer> allsignificance = new ArrayList<Integer>();
-    Reflections reflection;
-    long reflection_num;
+    Post post;
+    long post_count;
     DatabaseReference reff;
     public static final String responses = "responses";
     @Override
@@ -63,14 +65,14 @@ public class intellectualActivity extends AppCompatActivity {
 
             }
         });
-        final Intent intellectual = new Intent(this,intellectualActivity.class);
-        final Intent main = new Intent(this,HomeActivity.class);
-        reff = FirebaseDatabase.getInstance().getReference().child("Reflections");
+        final Intent intellectual = new Intent(this, HomeActivity.class);
+
+        reff = FirebaseDatabase.getInstance().getReference("users/" + "000111" + "/posts/");
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    reflection_num = dataSnapshot.getChildrenCount();
+                    post_count = dataSnapshot.getChildrenCount();
                 }
             }
             @Override
@@ -83,28 +85,35 @@ public class intellectualActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                finish_survey(lastmessage,intellectual,main);
+                finish_survey(lastmessage,intellectual);
             }
         });
 
     }
 
-    public void finish_survey(ArrayList<String> message,Intent intent,Intent main){
-
+    public void finish_survey(ArrayList<String> message,final Intent intent){
         intellectualResponse = (EditText) findViewById(R.id.intellectualResponse);
         String emResponse = intellectualResponse.getText().toString();
         message.add(emResponse);
-        reflection = new Reflections();
-        reflection.setSensorySignificance((Integer) allsignificance.get(0));
-        reflection.setIntellectualSignificance((Integer) allsignificance.get(2));
-        reflection.setEmotionalSignificance((Integer) allsignificance.get(1));
-        reflection.setBrief(message.get(0));
-        reflection.setSensory(message.get(1));
-        reflection.setEmotional(message.get(2));
-        reflection.setIntellectual(message.get(3));
-        reff.child(String.valueOf(reflection_num+1)).setValue(reflection);
-        this.startActivity(main);
-
+        post = new Post();
+        post.setPhotoURL("https://thumbnailer.mixcloud.com/unsafe/300x300/extaudio/5/d/3/4/a4f7-f879-436c-834b-e72605bd3f2f.jpg");
+        post.setSensoryPoint(allsignificance.get(0).toString());
+        post.setIntellectualPoint(allsignificance.get(2).toString());
+        post.setEmotionalPoint(allsignificance.get(1).toString());
+        post.setBriefDescription(message.get(0));
+        post.setSensoryDescription(message.get(1));
+        post.setEmotionalDescription(message.get(2));
+        post.setIntellectualDescription(message.get(3));
+        reff.child(String.valueOf(post_count +1)).setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(intellectualActivity.this, "Failed to upload image!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }

@@ -5,13 +5,14 @@ import android.os.Parcelable;
 
 public class Post implements Parcelable {
 
-    private String photoURL, sensoryDescription, emotionalDescription, intellectualDescription, sensoryPoint, emotionalPoint, intellectualPoint;
+    private String photoURL, briefDescription, sensoryDescription, emotionalDescription, intellectualDescription, sensoryPoint, emotionalPoint, intellectualPoint;
 
     public Post(){
     }
 
     protected Post(Parcel in) {
         photoURL = in.readString();
+        briefDescription = in.readString();
         sensoryDescription = in.readString();
         emotionalDescription = in.readString();
         intellectualDescription = in.readString();
@@ -23,7 +24,7 @@ public class Post implements Parcelable {
     public static final Creator<Post> CREATOR = new Creator<Post>() {
         @Override
         public Post createFromParcel(Parcel in) {
-            return new Post(in);
+            return new Post();
         }
 
         @Override
@@ -88,6 +89,14 @@ public class Post implements Parcelable {
         this.intellectualPoint = intellectualPoint;
     }
 
+    public String getBriefDescription() {
+        return briefDescription;
+    }
+
+    public void setBriefDescription(String briefDescription) {
+        this.briefDescription = briefDescription;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -96,5 +105,12 @@ public class Post implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(this.photoURL);
+        dest.writeValue(this.briefDescription);
+        dest.writeValue(this.intellectualDescription);
+        dest.writeValue(this.emotionalDescription);
+        dest.writeValue(this.sensoryDescription);
+        dest.writeValue(this.intellectualPoint);
+        dest.writeValue(this.emotionalPoint);
+        dest.writeValue(this.sensoryPoint);
     }
 }
