@@ -100,7 +100,8 @@ public class ReflectionLog extends AppCompatActivity {
                     break;
                 case 2:
                     TextView body = customView.findViewById(R.id.carouselBody);
-                    body.setText(brief);
+                    Toast.makeText(ReflectionLog.this, post.getBriefDescription(), Toast.LENGTH_SHORT).show();
+                    body.setText(post.getBriefDescription());
                     customView.setBackgroundResource(R.drawable.background_white);
                     break;
                 default:

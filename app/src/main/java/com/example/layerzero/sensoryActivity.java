@@ -34,8 +34,6 @@ public class sensoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensory);
-        PushNotifications.start(getApplicationContext(), "a1857535-3ff2-4bfa-8ccf-1a78f47913e7");
-        PushNotifications.addDeviceInterest("hello");
         // Get the Intent that started this activity and extract the string
         final Intent intent = getIntent();
         final String message = intent.getStringExtra(SensoryMainActivity.EXTRA_MESSAGE);

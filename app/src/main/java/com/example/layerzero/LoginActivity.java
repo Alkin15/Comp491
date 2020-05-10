@@ -14,15 +14,30 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.annotations.NotNull;
+import com.google.firebase.messaging.RemoteMessage;
+import com.pusher.pushnotifications.PushNotificationReceivedListener;
+import com.pusher.pushnotifications.PushNotifications;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth fba;
     private SpinKitView spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        PushNotifications.start(getApplicationContext(), "e8dc6bfa-81f3-4b61-ac38-aad27e4ef2e8");
+        PushNotifications.addDeviceInterest("hello");
+        PushNotifications.setOnMessageReceivedListenerForVisibleActivity(this, new PushNotificationReceivedListener() {
+            @Override
+            public void onMessageReceived(@NotNull RemoteMessage remoteMessage) {
+                Intent i = new Intent(getApplicationContext(),SensoryMainActivity.class);
+                startActivity(i);
+            }
+        });
 
         //Hide Spinner
         this.spinner = (SpinKitView) findViewById(R.id.spin_kit);

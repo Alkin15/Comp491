@@ -12,12 +12,14 @@ public class Util {
         intent.putExtra("sp", post.getSensoryPoint());
         intent.putExtra("ip", post.getIntellectualPoint());
         intent.putExtra("ep", post.getEmotionalPoint());
+        intent.putExtra("brf", post.getBriefDescription());
         return intent;
     }
 
     public static Post manuelObjecter(Intent intent){
         Post tp = new Post();
         tp.setPhotoURL(intent.getStringExtra("url"));
+        tp.setBriefDescription(intent.getStringExtra("brf"));
         tp.setEmotionalDescription(intent.getStringExtra("e"));
         tp.setSensoryDescription(intent.getStringExtra("s"));
         tp.setIntellectualDescription(intent.getStringExtra("i"));
