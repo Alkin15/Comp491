@@ -68,6 +68,9 @@ public class ReflectionLog extends AppCompatActivity {
         picture = R.drawable.n1;
         processedPicture = R.drawable.n1;
 
+        carouselView1 = findViewById(R.id.imageCarouselView);
+        carouselView1.setPageCount(3);
+        carouselView1.setViewListener(viewListener1);
 
         carouselView2 = findViewById(R.id.textCarouselView);
         carouselView2.setPageCount(3);
@@ -98,7 +101,7 @@ public class ReflectionLog extends AppCompatActivity {
                     break;
                 case 2:
                     TextView body = customView.findViewById(R.id.carouselBody);
-                    Toast.makeText(ReflectionLog.this, post.getBriefDescription(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ReflectionLog.this, post.getBriefDescription(), Toast.LENGTH_SHORT).show();
                     body.setText(post.getBriefDescription());
                     customView.setBackgroundResource(R.drawable.background_white);
                     break;
