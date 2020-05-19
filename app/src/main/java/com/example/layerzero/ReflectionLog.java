@@ -8,8 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,16 +59,7 @@ public class ReflectionLog extends AppCompatActivity {
 
         String texts[];
 
-
-
-//        Intent intent = getIntent();
-//        imageId = intent.getStringExtra("imageId");
-//        imageUrl = intent.getStringExtra("imageUrl");
-
-        //Enver editledi
         this.post = Util.manuelObjecter(getIntent());
-        picture = R.drawable.n1;
-        processedPicture = R.drawable.n1;
 
         carouselView1 = findViewById(R.id.imageCarouselView);
         carouselView1.setPageCount(3);
@@ -91,6 +84,9 @@ public class ReflectionLog extends AppCompatActivity {
         @Override
         public View setViewForPosition(int position) {
             View customView = getLayoutInflater().inflate(R.layout.layout_reflection_summary, null);
+            ImageView carouselCircle1 = customView.findViewById(R.id.carouselCircle1);
+            ImageView carouselCircle2 = customView.findViewById(R.id.carouselCircle2);
+            ImageView carouselCircle3 = customView.findViewById(R.id.carouselCircle3);
             //set view attributes here
             switch (position) {
                 case 0:
@@ -98,10 +94,76 @@ public class ReflectionLog extends AppCompatActivity {
                     break;
                 case 1:
                     Picasso.get().load(post.getPhotoURL()).into((ImageView) customView.findViewById(R.id.carouselBackground));
+
+                    switch (post.getSensoryPoint()) {
+                        case "0":
+                            break;
+                        case "1":
+                            carouselCircle1.setImageResource(R.drawable.sensory_filter_75);
+                            break;
+                        case "2":
+                            carouselCircle1.setImageResource(R.drawable.sensory_filter_60);
+                            break;
+                        case "3":
+                            carouselCircle1.setImageResource(R.drawable.sensory_filter_45);
+                            break;
+                        case "4":
+                            carouselCircle1.setImageResource(R.drawable.sensory_filter_30);
+                            break;
+                        case "5":
+                            carouselCircle1.setImageResource(R.drawable.sensory_filter_15);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    switch (post.getEmotionalPoint()) {
+                        case "0":
+                            break;
+                        case "1":
+                            carouselCircle2.setImageResource(R.drawable.emotional_filter_75);
+                            break;
+                        case "2":
+                            carouselCircle2.setImageResource(R.drawable.emotional_filter_60);
+                            break;
+                        case "3":
+                            carouselCircle2.setImageResource(R.drawable.emotional_filter_45);
+                            break;
+                        case "4":
+                            carouselCircle2.setImageResource(R.drawable.emotional_filter_30);
+                            break;
+                        case "5":
+                            carouselCircle2.setImageResource(R.drawable.emotional_filter_15);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    switch (post.getIntellectualPoint()) {
+                        case "0":
+                            break;
+                        case "1":
+                            carouselCircle3.setImageResource(R.drawable.intellectual_filter_75);
+                            break;
+                        case "2":
+                            carouselCircle3.setImageResource(R.drawable.intellectual_filter_60);
+                            break;
+                        case "3":
+                            carouselCircle3.setImageResource(R.drawable.intellectual_filter_45);
+                            break;
+                        case "4":
+                            carouselCircle3.setImageResource(R.drawable.intellectual_filter_30);
+                            break;
+                        case "5":
+                            carouselCircle3.setImageResource(R.drawable.intellectual_filter_15);
+                            break;
+                        default:
+                            break;
+                    }
+
                     break;
                 case 2:
                     TextView body = customView.findViewById(R.id.carouselBody);
-//                    Toast.makeText(ReflectionLog.this, post.getBriefDescription(), Toast.LENGTH_SHORT).show();
                     body.setText(post.getBriefDescription());
                     customView.setBackgroundResource(R.drawable.background_white);
                     break;
