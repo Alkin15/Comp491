@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -40,11 +41,15 @@ public class HomeActivity extends AppCompatActivity {
     private Button sButton;
     private FirebaseAuth fba;
     private FirebaseDatabase db;
+    Switch arSwitch;
+    Boolean switchState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        arSwitch = findViewById(R.id.switch1);
+        arSwitch.setChecked(false);
 
         PushNotifications.start(getApplicationContext(), "e8dc6bfa-81f3-4b61-ac38-aad27e4ef2e8");
         PushNotifications.addDeviceInterest("hello");
@@ -55,6 +60,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
 
         //Spinner
         final com.github.ybq.android.spinkit.SpinKitView spinner = findViewById(R.id.spin_kit);
@@ -106,6 +113,19 @@ public class HomeActivity extends AppCompatActivity {
 
                  */
 
+            }
+        });
+
+
+        arSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+//                if (isChecked) {
+                arSwitch.setChecked(false);
+                    Intent i = new Intent(getApplicationContext(), ARActivity.class);
+                    startActivity(i);
+//                }
             }
         });
     }

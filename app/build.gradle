@@ -7,13 +7,20 @@ android {
 
     defaultConfig {
         applicationId "com.example.layerzero"
-        minSdkVersion 17
+        minSdkVersion 24 // Sceneform requires minSdkVersion >= 24.
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
+    }
+
+    // Sceneform libraries use language constructs from Java 8.
+    // Add these compile options if targeting minSdkVersion < 26.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -45,7 +52,10 @@ dependencies {
     implementation 'com.pusher:push-notifications-android:1.6.2'
     implementation 'com.squareup.okhttp3:okhttp:4.6.0'
     implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
-
+    implementation 'com.google.ar:core:1.15.0' // Provides ARCore Session and related resources.
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0' // Provides ArFragment, and other UX resources.
+//    implementation 'com.google.ar.sceneform:core:1.15.0' // Alternatively, use ArSceneView without the UX dependency.
 
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
