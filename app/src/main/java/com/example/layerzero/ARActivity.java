@@ -20,6 +20,7 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
@@ -46,7 +47,7 @@ public class ARActivity extends AppCompatActivity {
         arSwitch.setChecked(true);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb"))
+        ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb.sfb"))
                 .build().thenAccept(renderable -> balloonRenderable = renderable)
                 .exceptionally(throwable -> {
                     Log.e(TAG, "Unable to load Renderable.", throwable);
@@ -62,9 +63,13 @@ public class ARActivity extends AppCompatActivity {
             }
             Anchor anchor = hitresult.createAnchor();
             AnchorNode anchorNode = new AnchorNode(anchor);
+
             anchorNode.setParent(arFragment.getArSceneView().getScene());
             anchorNode.setRenderable(balloonRenderable);
             TransformableNode balloon = new TransformableNode(arFragment.getTransformationSystem());
+
+            // Scaling down the balloon object
+            balloon.setLocalScale(new Vector3(0.1f, 0.1f, 0.1f));
             balloon.setParent(anchorNode);
             balloon.setRenderable(balloonRenderable);
             balloon.select();
