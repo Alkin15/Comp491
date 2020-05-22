@@ -58,7 +58,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="@dimen/navbar_x"
-        android:src="@drawable/ic_settings_black_24dp"
+        android:src="@mipmap/icon_settings"
+        android:background="@color/black_transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/switch1"
         app:layout_constraintTop_toTopOf="parent" />

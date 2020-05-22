@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -38,7 +39,7 @@ import kotlin.reflect.jvm.internal.ReflectProperties;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private Button sButton;
+    private ImageButton sButton;
     private FirebaseAuth fba;
     private FirebaseDatabase db;
     Switch arSwitch;

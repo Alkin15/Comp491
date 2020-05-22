@@ -56,6 +56,12 @@ dependencies {
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0' // Provides ArFragment, and other UX resources.
 //    implementation 'com.google.ar.sceneform:core:1.15.0' // Alternatively, use ArSceneView without the UX dependency.
 
+
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/Balloon.obj', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/Balloon.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/assets/Balloon.sfb')              // '.sfb Output Path' specified during import.

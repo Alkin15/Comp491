@@ -75,15 +75,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonS"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="@dimen/navbar_x"
-            android:text="@string/s"
-            android:textColor="@color/colorDarkText"
+            android:background="@color/colorBackground"
+            android:src="@mipmap/icon_settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/switch1"
             app:layout_constraintTop_toTopOf="parent" />

@@ -46,11 +46,14 @@ public class ARActivity extends AppCompatActivity {
         arSwitch.setChecked(true);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb")).build().thenAccept(renderable -> balloonRenderable = renderable).exceptionally(throwable -> {
-            Toast toast = Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-            return null;
+        ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb"))
+                .build().thenAccept(renderable -> balloonRenderable = renderable)
+                .exceptionally(throwable -> {
+                    Log.e(TAG, "Unable to load Renderable.", throwable);
+                    Toast toast = Toast.makeText(this, "Unable to load renderable", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    return null;
         });
 
         arFragment.setOnTapArPlaneListener((HitResult hitresult, Plane plane, MotionEvent motionevent) -> {
@@ -60,6 +63,7 @@ public class ARActivity extends AppCompatActivity {
             Anchor anchor = hitresult.createAnchor();
             AnchorNode anchorNode = new AnchorNode(anchor);
             anchorNode.setParent(arFragment.getArSceneView().getScene());
+            anchorNode.setRenderable(balloonRenderable);
             TransformableNode balloon = new TransformableNode(arFragment.getTransformationSystem());
             balloon.setParent(anchorNode);
             balloon.setRenderable(balloonRenderable);
