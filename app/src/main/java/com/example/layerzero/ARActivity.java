@@ -47,7 +47,7 @@ public class ARActivity extends AppCompatActivity {
         arSwitch.setChecked(true);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb.sfb"))
+        ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb"))
                 .build().thenAccept(renderable -> balloonRenderable = renderable)
                 .exceptionally(throwable -> {
                     Log.e(TAG, "Unable to load Renderable.", throwable);
@@ -65,11 +65,11 @@ public class ARActivity extends AppCompatActivity {
             AnchorNode anchorNode = new AnchorNode(anchor);
 
             anchorNode.setParent(arFragment.getArSceneView().getScene());
-            anchorNode.setRenderable(balloonRenderable);
+//            anchorNode.setRenderable(balloonRenderable);
             TransformableNode balloon = new TransformableNode(arFragment.getTransformationSystem());
 
             // Scaling down the balloon object
-            balloon.setLocalScale(new Vector3(0.1f, 0.1f, 0.1f));
+            balloon.setLocalScale(new Vector3(0.01f, 0.01f, 0.01f));
             balloon.setParent(anchorNode);
             balloon.setRenderable(balloonRenderable);
             balloon.select();
