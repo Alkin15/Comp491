@@ -47,6 +47,7 @@ public class ARActivity extends AppCompatActivity {
         arSwitch.setChecked(true);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
+        //TODO: credit the owner of the asset
         ModelRenderable.builder().setSource(this, Uri.parse("Balloon.sfb"))
                 .build().thenAccept(renderable -> balloonRenderable = renderable)
                 .exceptionally(throwable -> {
