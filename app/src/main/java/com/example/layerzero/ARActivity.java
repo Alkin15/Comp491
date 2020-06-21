@@ -1,7 +1,6 @@
 package com.example.layerzero;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -66,7 +65,6 @@ public class ARActivity extends AppCompatActivity {
             AnchorNode anchorNode = new AnchorNode(anchor);
 
             anchorNode.setParent(arFragment.getArSceneView().getScene());
-//            anchorNode.setRenderable(balloonRenderable);
             TransformableNode balloon = new TransformableNode(arFragment.getTransformationSystem());
 
             // Scaling down the balloon object

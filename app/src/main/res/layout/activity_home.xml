@@ -41,7 +41,7 @@
             android:fontFamily="@font/open_sans"
             android:text="@string/ar_view"
             android:textColor="@color/colorDarkText"
-            android:textSize="10dp"
+            android:textSize="10sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

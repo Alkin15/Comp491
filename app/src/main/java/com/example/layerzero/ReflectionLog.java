@@ -59,9 +59,6 @@ public class ReflectionLog extends AppCompatActivity {
             switch (position) {
                 case 0:
                     Picasso.get().load(post.getPhotoURL()).into((ImageView) customView.findViewById(R.id.carouselBackground));
-                    break;
-                case 1:
-                    Picasso.get().load(post.getPhotoURL()).into((ImageView) customView.findViewById(R.id.carouselBackground));
 
                     switch (post.getSensoryPoint()) {
                         case "0":
@@ -128,6 +125,10 @@ public class ReflectionLog extends AppCompatActivity {
                         default:
                             break;
                     }
+
+                    break;
+                case 1:
+                    Picasso.get().load(post.getPhotoURL()).into((ImageView) customView.findViewById(R.id.carouselBackground));
 
                     break;
                 case 2:

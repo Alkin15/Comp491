@@ -113,14 +113,4 @@
         app:layout_constraintEnd_toEndOf="@+id/briefResponse"
         app:layout_constraintTop_toBottomOf="@+id/briefResponse" />
 
-    <Button
-        android:id="@+id/gallery_button"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="6dp"
-        android:text="+"
-        app:layout_constraintBottom_toTopOf="@+id/line1"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 package com.example.layerzero;
 
-
 import android.content.Context;
 import android.content.SharedPreferences;
 

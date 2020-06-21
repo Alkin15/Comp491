@@ -1,27 +1,17 @@
 package com.example.layerzero;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +23,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.pusher.pushnotifications.PushNotificationReceivedListener;
 import com.pusher.pushnotifications.PushNotifications;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import kotlin.reflect.jvm.internal.ReflectProperties;
@@ -42,8 +33,10 @@ public class HomeActivity extends AppCompatActivity {
     private ImageButton sButton;
     private FirebaseAuth fba;
     private FirebaseDatabase db;
+    public static final int PICK_IMAGE = 1;
     Switch arSwitch;
     Boolean switchState;
+    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +55,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-
         //Spinner
         final com.github.ybq.android.spinkit.SpinKitView spinner = findViewById(R.id.spin_kit);
         spinner.setVisibility(View.GONE);
@@ -73,8 +64,6 @@ public class HomeActivity extends AppCompatActivity {
         //TODO: activate after authentication fixed
         //fba = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
-
-
 
         //String uid = fba.getCurrentUser().getUid();
         //change bottom line to dynamic
@@ -101,9 +90,7 @@ public class HomeActivity extends AppCompatActivity {
         sButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent i = new Intent(getApplicationContext(), SensoryMainActivity.class);
-                startActivity(i);
+                openGallery();
 
                 /*
                 Intent i = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://api.instagram.com/oauth/authorize?client_id=1383712118489523&redirect_uri=https://pdurak15.github.io/LayerZero-Website/&scope=user_profile,user_media&response_type=code"));
@@ -124,10 +111,29 @@ public class HomeActivity extends AppCompatActivity {
                 // true if the switch is in the On position
 //                if (isChecked) {
                 arSwitch.setChecked(false);
-                    Intent i = new Intent(getApplicationContext(), ARActivity.class);
-                    startActivity(i);
+                Intent i = new Intent(getApplicationContext(), ARActivity.class);
+                startActivity(i);
 //                }
             }
         });
+
+    }
+
+    private void openGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            imageUri = data.getData();
+        }
+        Intent i = new Intent(getApplicationContext(), SensoryMainActivity.class);
+        i.putExtra("imageUri", imageUri);
+        startActivity(i);
     }
 }

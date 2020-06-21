@@ -4,20 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
-
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.pusher.pushnotifications.PushNotifications;
 
 import java.util.ArrayList;
 
-public class sensoryActivity extends AppCompatActivity {
+public class SensoryActivity extends AppCompatActivity {
     SeekBar sensorySeekbar;
     int sensorySignificance=1;
     Button senButton;
@@ -58,7 +53,7 @@ public class sensoryActivity extends AppCompatActivity {
             }
         });
         senButton = (Button) findViewById(R.id.sensoryNext);
-        final Intent emotional = new Intent(this,emotionalActivity.class);
+        final Intent emotional = new Intent(this, EmotionalActivity.class);
         senButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

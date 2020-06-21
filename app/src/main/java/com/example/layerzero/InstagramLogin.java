@@ -33,7 +33,7 @@ import java.io.IOException;
 
 import com.squareup.picasso.Picasso;
 
-public class instagramLogin extends AppCompatActivity implements AuthenticationListener{
+public class InstagramLogin extends AppCompatActivity implements AuthenticationListener{
 
     private String token = null;
     private AppPreferences appPreferences = null;

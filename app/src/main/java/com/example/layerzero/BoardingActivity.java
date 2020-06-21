@@ -1,13 +1,8 @@
 package com.example.layerzero;
 
-import androidx.annotation.ColorRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.cuneytayyildiz.onboarder.OnboarderActivity;
 import com.cuneytayyildiz.onboarder.OnboarderPage;
@@ -115,11 +110,11 @@ public class BoardingActivity extends OnboarderActivity implements OnboarderPage
                         .build()
         );
         setOnboarderPageChangeListener(this);
-        setFinishButtonTextColor(R.color.text_button_dark);
-        setNextButtonTextColor(R.color.text_button_dark);
-        setSkipButtonTextColor(R.color.text_button_dark);
+        setFinishButtonTextColor(R.color.text_dark);
+        setNextButtonTextColor(R.color.text_dark);
+        setSkipButtonTextColor(R.color.text_dark);
         setActiveIndicatorColor(R.color.colorPrimary);
-        setInactiveIndicatorColor(R.color.inactive);
+        setInactiveIndicatorColor(R.color.colorLightText);
         setDividerVisibility(View.GONE);
         setSkipButtonTitle(R.string.skip);
         setFinishButtonTitle(R.string.finish);
@@ -138,8 +133,3 @@ public class BoardingActivity extends OnboarderActivity implements OnboarderPage
         //Toast.makeText(this, "onPageChanged: " + position, Toast.LENGTH_SHORT).show();
     }
 }
-
-/*Easy clone for boarding page
-
-
- */
